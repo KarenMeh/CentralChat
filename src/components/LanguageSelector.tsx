@@ -21,8 +21,8 @@ const translations = {
     
     // Hero Section
     unifyMessaging: 'Unify All Your Messaging Channels in One Place',
-    heroDescription: 'CentralChat.ai consolidates WhatsApp, Facebook, Instagram, Line, LinkedIn, and Email into a single platform, enhanced with AI-powered responses.',
-    requestDemo: 'Request Demo',
+    heroDescription: 'CentralChat.ai consolidates WhatsApp, Facebook, and Instagram into a single platform, enhanced with AI-powered responses.',
+    requestDemo: 'Show Demo',
     exploreFeatures: 'Explore Features',
     watchDemo: 'Watch how CentralChat.ai streamlines your customer communication',
     demoFeatures: 'Featuring our unified inbox, AI responses, and seamless channel switching',
@@ -31,7 +31,7 @@ const translations = {
     powerfulFeatures: 'Powerful Features',
     featuresDescription: 'CentralChat.ai combines cutting-edge AI with seamless integration to transform your customer communication.',
     unifiedMessaging: 'Unified Messaging',
-    unifiedMessagingDesc: 'Consolidate WhatsApp, Facebook, Instagram, Line, LinkedIn, and Email into a single platform.',
+    unifiedMessagingDesc: 'Consolidate WhatsApp, Facebook, and Instagram into a single platform.',
     aiResponses: 'AI-Powered Responses',
     aiResponsesDesc: 'Integrated chatbot using Meta\'s Llama via IONOS AI Model Hub for GDPR compliance.',
     multiLanguage: 'Multi-Language Support',
@@ -86,8 +86,8 @@ const translations = {
     
     // Hero Section
     unifyMessaging: 'Vereinen Sie alle Ihre Nachrichtenkanäle an einem Ort',
-    heroDescription: 'CentralChat.ai vereint WhatsApp, Facebook, Instagram, Line, LinkedIn und E-Mail in einer einzigen Plattform, erweitert durch KI-gestützte Antworten.',
-    requestDemo: 'Demo anfordern',
+    heroDescription: 'CentralChat.ai vereint WhatsApp, Facebook, und Instagram in einer einzigen Plattform, erweitert durch KI-gestützte Antworten.',
+    requestDemo: 'Demo anzeigen',
     exploreFeatures: 'Funktionen entdecken',
     watchDemo: 'Sehen Sie, wie CentralChat.ai Ihre Kundenkommunikation optimiert',
     demoFeatures: 'Mit unserem einheitlichen Posteingang, KI-Antworten und nahtlosem Kanalwechsel',
@@ -96,7 +96,7 @@ const translations = {
     powerfulFeatures: 'Leistungsstarke Funktionen',
     featuresDescription: 'CentralChat.ai verbindet modernste KI mit nahtloser Integration, um Ihre Kundenkommunikation zu transformieren.',
     unifiedMessaging: 'Vereinheitlichte Nachrichten',
-    unifiedMessagingDesc: 'Konsolidieren Sie WhatsApp, Facebook, Instagram, Line, LinkedIn und E-Mail in einer Plattform.',
+    unifiedMessagingDesc: 'Konsolidieren Sie WhatsApp, Facebook, und Instagram in einer Plattform.',
     aiResponses: 'KI-gestützte Antworten',
     aiResponsesDesc: 'Integrierter Chatbot mit Meta\'s Llama über IONOS AI Model Hub für DSGVO-Konformität.',
     multiLanguage: 'Mehrsprachiger Support',

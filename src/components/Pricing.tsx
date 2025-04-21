@@ -27,7 +27,7 @@ const Pricing: React.FC = () => {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Unlimited integration of channels (WhatsApp, Facebook, Instagram, Line, LinkedIn, Email)</span>
+                  <span>Unlimited integration of channels (WhatsApp, Facebook, and Instagram)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />

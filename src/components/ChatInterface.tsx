@@ -1,19 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Check, Edit, User, Bot, MessageSquare } from 'lucide-react';
 
 const ChatInterface: React.FC = () => {
-  const [messages, setMessages] = useState([
-    { id: 1, text: "Hello! I'm interested in your services. Can you tell me more about your pricing?", sender: 'user', time: '10:30 AM', channel: 'WhatsApp' },
-    { id: 2, text: "Hi there! Thank you for your interest in CentralChat.ai. Our pricing starts at €200 net per month, plus the costs for the GDPR-compliant LLM from IONOS and the Meta messaging fees. Would you like more specific details?", sender: 'bot', time: '10:31 AM', suggestion: true }
-  ]);
+  // Initial messages that should always be present
+  const initialMessages = [
+      { id: 1, text: "Hello! I'm interested in your services. Can you tell me more about your pricing?", sender: 'user', time: '10:30 AM', channel: 'WhatsApp' },
+      { id: 2, text: "Hi there! Thank you for your interest in CentralChat.ai. Our pricing starts at €200 net per month, plus the costs for the GDPR-compliant LLM from IONOS and the Meta messaging fees. Would you like more specific details?", sender: 'bot', time: '10:31 AM', suggestion: true }
+  ];
+  
+  // Use the initial messages directly rather than localStorage
+  const [messages, setMessages] = useState(initialMessages);
   
   const [inputValue, setInputValue] = useState('');
   const [suggestion, setSuggestion] = useState("I'd be happy to provide more details about our pricing structure. The base fee of €200 includes unlimited users and channel integrations. Additionally, there's a 10% service fee on the LLM and messaging costs. Would you like to schedule a demo to see how it works?");
-
+  
+  // Define all the conversation flow
+  const conversationFlow = [
+    {
+      userMessage: "That sounds interesting. Can you tell me more about the AI features?",
+      nextSuggestion: "Our AI features include automatic response generation using Meta's Llama model via IONOS AI Model Hub, ensuring GDPR compliance. The chatbot learns from each interaction to improve future responses. You can choose to have it respond autonomously or provide suggestions for your approval. Would you like to know more about specific AI capabilities?"
+    },
+    {
+      userMessage: "That sounds impressive! What about data security and GDPR compliance?",
+      nextSuggestion: "Security and compliance are our top priorities. All data is processed and stored within EU-based servers through IONOS, ensuring full GDPR compliance. We implement end-to-end encryption for all messages, and your data is never used to train models outside your organization. We also provide complete data export and deletion options. Would you like to review our detailed security documentation?"
+    },
+    {
+      userMessage: "No need for the documentation right now, but I might be interested in a demo. Can we schedule one for next week?",
+      nextSuggestion: "Thank you for your interest in CentralChat.ai! I'd be happy to schedule a demo for next week. Could you let me know which day and time works best for you? Also, if you'd like, we can include some of our technical specialists in the call to address any specific questions you might have about our platform. Looking forward to showing you how CentralChat.ai can streamline your communication processes!"
+    },
+    {
+      userMessage: "Tuesday at 2 PM would work for me. And yes, having a technical specialist on the call would be great.",
+      nextSuggestion: "Perfect! I've scheduled a demo for Tuesday at 2 PM with our technical specialist, Kurt. You'll receive a calendar invite with meeting details shortly. Is there anything specific you'd like us to focus on during the demo? We can tailor it to your business needs and interests."
+    },
+    {
+      userMessage: "I'd like to focus on integration with our existing CRM and the AI training process. Also, could you show examples of analytics reporting?",
+      nextSuggestion: "Thank you for sharing your interests! I've noted your focus areas for the demo - CRM integration, AI training process, and analytics reporting.Kurt will prepare demonstrations of these specific features. We work with most major CRM systems, so if you could let us know which one you're using before the demo, that would be helpful. We look forward to meeting you on Tuesday at 2 PM. If you have any questions before then, please don't hesitate to reach out!"
+    },
+    {
+      userMessage: "We use HubSpot. Thank you for setting this up - looking forward to the demo!",
+      nextSuggestion: "Great! HubSpot is one of our most common integrations, so we can definitely show you how that works in detail. Thank you for your time today - we're excited to demonstrate how CentralChat.ai can enhance your customer communication experience. Have a wonderful day, and we'll see you on Tuesday!"
+    }
+  ];
+  
+  // Track which step of the conversation we're on
+  const [conversationStep, setConversationStep] = useState(0);
+  
   const handleSendMessage = () => {
     if (inputValue.trim()) {
-      setMessages([...messages, {
-        id: messages.length + 1,
+      // Add the agent message
+      setMessages(prev => [...prev, {
+        id: prev.length + 1,
         text: inputValue,
         sender: 'agent',
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
@@ -23,23 +59,27 @@ const ChatInterface: React.FC = () => {
       
       // Simulate new user message after agent response
       setTimeout(() => {
-        setMessages(prev => [...prev, {
-          id: prev.length + 1,
-          text: "That sounds interesting. Can you tell me more about the AI features?",
-          sender: 'user',
-          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          channel: 'WhatsApp'
-        }]);
-        
-        // Set new suggestion
-        setSuggestion("Our AI features include automatic response generation using Meta's Llama model via IONOS AI Model Hub, ensuring GDPR compliance. The chatbot learns from each interaction to improve future responses. You can choose to have it respond autonomously or provide suggestions for your approval. Would you like to know more about specific AI capabilities?");
+        if (conversationStep < conversationFlow.length) {
+          setMessages(prev => [...prev, {
+            id: prev.length + 1,
+            text: conversationFlow[conversationStep].userMessage,
+            sender: 'user',
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            channel: 'WhatsApp'
+          }]);
+          
+          // Set new suggestion
+          setSuggestion(conversationFlow[conversationStep].nextSuggestion);
+          setConversationStep(prev => prev + 1);
+        }
       }, 1500);
     }
   };
-
+  
   const handleSendSuggestion = () => {
-    setMessages([...messages, {
-      id: messages.length + 1,
+    // Add the suggestion as an agent message
+    setMessages(prev => [...prev, {
+      id: prev.length + 1,
       text: suggestion,
       sender: 'agent',
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
@@ -48,22 +88,35 @@ const ChatInterface: React.FC = () => {
     
     // Simulate new user message after agent response
     setTimeout(() => {
-      setMessages(prev => [...prev, {
-        id: prev.length + 1,
-        text: "That sounds interesting. Can you tell me more about the AI features?",
-        sender: 'user',
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        channel: 'WhatsApp'
-      }]);
-      
-      // Set new suggestion
-      setSuggestion("Our AI features include automatic response generation using Meta's Llama model via IONOS AI Model Hub, ensuring GDPR compliance. The chatbot learns from each interaction to improve future responses. You can choose to have it respond autonomously or provide suggestions for your approval. Would you like to know more about specific AI capabilities?");
+      if (conversationStep < conversationFlow.length) {
+        setMessages(prev => [...prev, {
+          id: prev.length + 1,
+          text: conversationFlow[conversationStep].userMessage,
+          sender: 'user',
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          channel: 'WhatsApp'
+        }]);
+        
+        // Set new suggestion
+        setSuggestion(conversationFlow[conversationStep].nextSuggestion);
+        setConversationStep(prev => prev + 1);
+      } else {
+        setSuggestion("");
+      }
     }, 1500);
   };
-
+  
   const handleEditSuggestion = () => {
     setInputValue(suggestion);
     setSuggestion("");
+  };
+
+  // Reset chat to initial state function
+  const resetChat = () => {
+    setMessages(initialMessages);
+    setInputValue('');
+    setSuggestion("I'd be happy to provide more details about our pricing structure. The base fee of €200 includes unlimited users and channel integrations. Additionally, there's a 10% service fee on the LLM and messaging costs. Would you like to schedule a demo to see how it works?");
+    setConversationStep(0);
   };
 
   return (

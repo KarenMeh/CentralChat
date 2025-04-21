@@ -14,9 +14,9 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
-        <About />
+      <About />
       <Features />
-  <Integrations />
+     <Integrations />
       <ChatInterface />
       <Pricing />
     

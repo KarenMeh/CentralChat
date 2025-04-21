@@ -5,7 +5,7 @@ const features = [
   {
     icon: <MessageSquare className="h-8 w-8 text-primary-500" />,
     title: 'Unified Messaging',
-    description: 'Consolidate WhatsApp, Facebook, Instagram, Line, LinkedIn, and Email into a single platform.'
+    description: 'Consolidate WhatsApp, Facebook, and Instagram into a single platform.'
   },
   {
     icon: <Bot className="h-8 w-8 text-primary-500" />,
@@ -36,10 +36,10 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="py-16 bg-white">
+    <section id="features" className="py-16 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Powerful Features</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             CentralChat.ai combines cutting-edge AI with seamless integration to transform your customer communication.
           </p>
@@ -47,12 +47,15 @@ const Features: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100">
-              <div className="mb-4">
+            <div 
+              key={index} 
+              className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col transform hover:-translate-y-1"
+            >
+              <div className="bg-primary-50 p-3 rounded-lg inline-block mb-6 w-16 h-16 flex items-center justify-center">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-700">{feature.description}</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+              <p className="text-gray-700 flex-grow">{feature.description}</p>
             </div>
           ))}
         </div>

@@ -10,16 +10,16 @@ const Header: React.FC = () => {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <MessageSquare className="h-8 w-8 text-primary-600" />
-          <span className="text-2xl font-bold text-gray-800">CentralChat<span className="text-primary-600">.ai</span></span>
+        <img src="/cc_logo.svg" alt="CentralChat Logo" className="h-10 w-10 text-primary-500" />
+        <span className="text-2xl font-bold text-gray-800">CentralChat<span className="text-primary-600">.ai</span></span>
         </div>
         
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-6">
+            <a href="#about" className="text-gray-700 hover:text-primary-600 font-medium">{getTranslation('about')}</a>
             <a href="#features" className="text-gray-700 hover:text-primary-600 font-medium">{getTranslation('features')}</a>
             <a href="#pricing" className="text-gray-700 hover:text-primary-600 font-medium">{getTranslation('pricing')}</a>
             <a href="#integrations" className="text-gray-700 hover:text-primary-600 font-medium">{getTranslation('integrations')}</a>
-            <a href="#about" className="text-gray-700 hover:text-primary-600 font-medium">{getTranslation('about')}</a>
           </nav>
           
           <div className="flex items-center space-x-4">
