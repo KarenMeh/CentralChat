@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
                 <div>
                   <p className="font-medium">Email</p>
                   <a href="mailto:info@centralchat.ai" className="text-primary-100 hover:text-white">
-                    info@centralchat.ai
+                  Hello@CentralChat.de
                   </a>
                 </div>
               </div>
@@ -62,9 +62,11 @@ const Contact: React.FC = () => {
                 <div>
                   <p className="font-medium">Address</p>
                   <p className="text-primary-100">
-                    Musterstraße 123<br />
-                    10115 Berlin<br />
+                  Langenstr. 34,<br />
+                  28195 Bremen,<br />
                     Germany
+
+                 
                   </p>
                 </div>
               </div>
