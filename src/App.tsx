@@ -18,8 +18,7 @@ function App() {
       <Features />
      <Integrations />
       <ChatInterface />
-      <Pricing />
-    
+      <Pricing />  
       <Contact />
       <Footer />
     </div>
