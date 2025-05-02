@@ -130,7 +130,7 @@ const Header: React.FC = () => {
             <a href="#contact" className="mt-2 bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors text-center">
               {getTranslation('contactUs')}
             </a>
-            <a href="#login" className="mt-2 border border-primary-600 text-primary-600 px-4 py-2 rounded-md hover:bg-primary-50 transition-colors text-center">
+            <a href="https://app.centralchat.me/" className="mt-2 border border-primary-600 text-primary-600 px-4 py-2 rounded-md hover:bg-primary-50 transition-colors text-center">
               {getTranslation('logIn') || 'Log In'}
             </a>
           </nav>
