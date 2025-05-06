@@ -26,6 +26,18 @@ const Header: React.FC = () => {
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
   const baseUrl = 'https://centralchat.me'; // Replace with your actual domain
   
+  // Improved section navigation that works with language prefixes
+  const scrollToSection = (sectionId) => (e) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // Update URL without page reload
+      const newUrl = `${window.location.pathname}#${sectionId}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+  };
+  
   return (
     <>
       {/* SEO enhancements with Helmet */}
@@ -65,10 +77,35 @@ const Header: React.FC = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex items-center space-x-6">
-              <a href={`/${language === 'de' ? 'de/' : ''}#about`} className="text-gray-500 hover:text-primary-600 ">{getTranslation('about')}</a>
-              <a href={`/${language === 'de' ? 'de/' : ''}#features`} className="text-gray-500 hover:text-gray-600 ">{getTranslation('features')}</a>
-              <a href={`/${language === 'de' ? 'de/' : ''}#pricing`} className="text-gray-500 hover:text-primary-600 ">{getTranslation('pricing')}</a>
-              <a href={`/${language === 'de' ? 'de/' : ''}#integrations`} className="text-gray-500 hover:text-primary-600 ">{getTranslation('integrations')}</a>
+              {/* Fixed section links that work with language prefix */}
+              <a 
+                href={`#about`} 
+                onClick={scrollToSection('about')} 
+                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+              >
+                {getTranslation('about')}
+              </a>
+              <a 
+                href={`#features`} 
+                onClick={scrollToSection('features')} 
+                className="text-gray-500 hover:text-gray-600 cursor-pointer"
+              >
+                {getTranslation('features')}
+              </a>
+              <a 
+                href={`#pricing`} 
+                onClick={scrollToSection('pricing')} 
+                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+              >
+                {getTranslation('pricing')}
+              </a>
+              <a 
+                href={`#integrations`} 
+                onClick={scrollToSection('integrations')} 
+                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+              >
+                {getTranslation('integrations')}
+              </a>
             </nav>
             
             <div className="flex items-center space-x-4">
@@ -103,12 +140,16 @@ const Header: React.FC = () => {
                 )}
               </button>
               
-              <a href={`/${language === 'de' ? 'de/' : ''}#contact`} className="bg-primary-500 text-white px-5 py-2 rounded-md hover:bg-primary-700 transition-colors">
+              <a 
+                href={`#contact`} 
+                onClick={scrollToSection('contact')} 
+                className="bg-primary-500 text-white px-5 py-2 rounded-md hover:bg-primary-700 transition-colors"
+              >
                 {getTranslation('contactUs')}
               </a>
 
               <a 
-                href={`https://app.centralchat.me/${language === 'de' ? 'de/' : ''}`} 
+                href="https://app.centralchat.me" 
                 className="border border-primary-600 text-primary-600 px-5 py-2 rounded-md hover:bg-primary-50 transition-colors"
                 hrefLang={language}
               >
@@ -127,14 +168,50 @@ const Header: React.FC = () => {
           </button>
         </div>
         
-        {/* Mobile menu */}
+        {/* Mobile menu with fixed navigation */}
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <nav className="flex flex-col px-4 py-2">
-              <a href={`/${language === 'de' ? 'de/' : ''}#features`} className="py-2 text-gray-500 hover:text-primary-600 font-medium">{getTranslation('features')}</a>
-              <a href={`/${language === 'de' ? 'de/' : ''}#pricing`} className="py-2 text-gray-500 hover:text-primary-600 font-medium">{getTranslation('pricing')}</a>
-              <a href={`/${language === 'de' ? 'de/' : ''}#integrations`} className="py-2 text-gray-500 hover:text-primary-600 font-medium">{getTranslation('integrations')}</a>
-              <a href={`/${language === 'de' ? 'de/' : ''}#about`} className="py-2 text-gray-500 hover:text-primary-600 font-medium">{getTranslation('about')}</a>
+              <a 
+                href={`#features`} 
+                onClick={(e) => {
+                  scrollToSection('features')(e);
+                  setIsMenuOpen(false); // Close menu after clicking
+                }} 
+                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
+              >
+                {getTranslation('features')}
+              </a>
+              <a 
+                href={`#pricing`} 
+                onClick={(e) => {
+                  scrollToSection('pricing')(e);
+                  setIsMenuOpen(false);
+                }} 
+                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
+              >
+                {getTranslation('pricing')}
+              </a>
+              <a 
+                href={`#integrations`} 
+                onClick={(e) => {
+                  scrollToSection('integrations')(e);
+                  setIsMenuOpen(false);
+                }} 
+                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
+              >
+                {getTranslation('integrations')}
+              </a>
+              <a 
+                href={`#about`} 
+                onClick={(e) => {
+                  scrollToSection('about')(e);
+                  setIsMenuOpen(false);
+                }} 
+                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
+              >
+                {getTranslation('about')}
+              </a>
               
               {/* Mobile Language Flag Button */}
               <div className="py-2 flex items-center">
@@ -170,11 +247,18 @@ const Header: React.FC = () => {
                 <span className="ml-2 text-gray-500">{language === 'en' ? 'English' : 'Deutsch'}</span>
               </div>
              
-              <a href={`/${language === 'de' ? 'de/' : ''}#contact`} className="mt-2 bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors text-center">
+              <a 
+                href={`#contact`} 
+                onClick={(e) => {
+                  scrollToSection('contact')(e);
+                  setIsMenuOpen(false);
+                }}
+                className="mt-2 bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors text-center cursor-pointer"
+              >
                 {getTranslation('contactUs')}
               </a>
               <a 
-                href={`https://app.centralchat.me/${language === 'de' ? 'de/' : ''}`} 
+                href="https://app.centralchat.me" 
                 className="mt-2 border border-primary-600 text-primary-600 px-4 py-2 rounded-md hover:bg-primary-50 transition-colors text-center"
                 hrefLang={language}
               >
