@@ -191,7 +191,13 @@ const Hero: React.FC = () => {
           
           {/* Mobile Video - Separate from main content to appear below - only visible on mobile */}
           <div className="md:hidden w-full mt-12 mb-6">
+<<<<<<< HEAD
             <h2 className="text-xl font-semibold text-center mb-6">{getTranslation('watchDemo')}</h2>
+=======
+            <h2 className="text-xl font-semibold text-center mb-6">
+              {getTranslation('watchDemo')}
+            </h2>
+>>>>>>> e544a02 (RESIZE THE FAVICON)
             <div
               className="relative rounded-xl shadow-xl overflow-hidden bg-gray-900 mx-auto"
               onClick={() => toggleVideo(true)}
