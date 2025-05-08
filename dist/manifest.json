@@ -1,0 +1,45 @@
+{
+  "name": "CentralChat.ai",
+  "short_name": "CentralChat",
+  "description": "Advanced AI chatbot platform providing seamless communication and smart automation solutions for businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#468BE5FF",
+  "icons": [
+    {
+      "src": "/cc_logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/cc_logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["business", "productivity", "communication"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Open Dashboard",
+      "short_name": "Dashboard",
+      "description": "View your messaging dashboard",
+      "url": "/dashboard",
+      "icons": [{ "src": "/dashboard-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "New Chat",
+      "short_name": "Chat",
+      "description": "Start a new chat",
+      "url": "/chat/new",
+      "icons": [{ "src": "/chat-icon.png", "sizes": "96x96" }]
+    }
+  ]
+} 

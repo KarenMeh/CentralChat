@@ -3,16 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/cc_logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     
     <!-- Primary Meta Tags -->
     <title>CentralChat.ai - Unified Messaging Platform</title>
     <meta name="title" content="CentralChat.ai - Unified Messaging Platform">
     <meta name="description" content="Advanced AI chatbot platform providing seamless communication and smart automation solutions for businesses. Integrate multiple messaging channels into one unified interface.">
-    <meta name="keywords" content="AI chatbot, business automation, unified messaging, customer service, communication platform">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="AI chatbot, business automation, unified messaging, customer service, communication platform, WhatsApp integration, Facebook integration, Instagram integration">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="language" content="English">
     <meta name="author" content="CentralChat">
+    <meta name="theme-color" content="#4693E5FF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CentralChat.ai">
+    <meta name="application-name" content="CentralChat.ai">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -20,30 +26,40 @@
     <meta property="og:title" content="CentralChat.ai - Unified Messaging Platform">
     <meta property="og:description" content="Advanced AI chatbot platform providing seamless communication and smart automation solutions for businesses. Integrate multiple messaging channels into one unified interface.">
     <meta property="og:image" content="https://centralchat.me/og-image.jpg">
+    <meta property="og:site_name" content="CentralChat.ai">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="de_DE">
     
+    <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/cc_logo.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/cc_logo_32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/cc_logo_16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/cc_logo_180.png">
+    <link rel="manifest" href="/manifest.json">
 
-    <!-- Open Graph Image (used when sharing the link) -->
+    <!-- Open Graph Image -->
     <meta property="og:image" content="https://centralchat.me/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CentralChat.ai Platform Interface">
 
-    <!-- Twitter Card for rich previews -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@centralchat">
+    <meta name="twitter:creator" content="@centralchat">
     <meta name="twitter:title" content="CentralChat.ai - Unified Messaging Platform">
     <meta name="twitter:description" content="Advanced AI chatbot platform providing seamless communication and smart automation solutions for businesses.">
     <meta name="twitter:image" content="https://centralchat.me/og-image.jpg">
+    <meta name="twitter:image:alt" content="CentralChat.ai Platform Interface">
    
     <!-- Canonical URL -->
     <link rel="canonical" href="https://centralchat.me/">
     
-    <!-- Fonts -->
+    <!-- Fonts with display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
@@ -65,25 +81,44 @@
               "https://twitter.com/centralchat",
               "https://linkedin.com/company/centralchat"
             ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer support",
-              "email": "support@centralchat.me",
-              "availableLanguage": ["English"]
-            }
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "support@centralchat.me",
+                "availableLanguage": ["English", "German"],
+                "telephone": "+1-555-123-4567",
+                "areaServed": ["US", "DE", "AT", "CH"],
+                "hoursAvailable": "Mo-Fr 09:00-17:00"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "sales@centralchat.me",
+                "availableLanguage": ["English", "German"],
+                "telephone": "+1-555-123-4568",
+                "areaServed": ["US", "DE", "AT", "CH"],
+                "hoursAvailable": "Mo-Fr 09:00-17:00"
+              }
+            ]
           },
           {
             "@type": "WebSite",
             "@id": "https://centralchat.me/#website",
             "url": "https://centralchat.me",
             "name": "CentralChat.ai",
+            "description": "Advanced AI chatbot platform providing seamless communication and smart automation solutions for businesses.",
             "publisher": {
               "@id": "https://centralchat.me/#organization"
             },
+            "inLanguage": ["en", "de"],
             "potentialAction": [
               {
                 "@type": "SearchAction",
-                "target": "https://centralchat.me/search?q={search_term_string}",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://centralchat.me/search?q={search_term_string}"
+                },
                 "query-input": "required name=search_term_string"
               },
               {
@@ -116,7 +151,8 @@
               "url": "https://centralchat.me/og-image.jpg"
             },
             "datePublished": "2024-01-01T00:00:00+00:00",
-            "dateModified": "2024-03-15T00:00:00+00:00"
+            "dateModified": "2024-03-15T00:00:00+00:00",
+            "inLanguage": ["en", "de"]
           },
           {
             "@type": "BreadcrumbList",
@@ -159,8 +195,16 @@
               "AI-powered responses",
               "Real-time analytics",
               "Custom workflow automation",
-              "24/7 customer support"
-            ]
+              "24/7 customer support",
+              "GDPR compliance",
+              "Multi-language support",
+              "Team escalation"
+            ],
+            "screenshot": {
+              "@type": "ImageObject",
+              "url": "https://centralchat.me/screenshot.jpg",
+              "caption": "CentralChat.ai Dashboard"
+            }
           }
         ]
       }
