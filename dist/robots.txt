@@ -1,0 +1,116 @@
+# robots.txt for https://centralchat.me/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /reset-password/
+Disallow: /verify-email/
+
+# Prevent crawling of search results
+Disallow: /search/
+Disallow: /*?q=
+Disallow: /*?s=
+Disallow: /*?query=
+
+# Prevent crawling of temporary or development routes
+Disallow: /temp/
+Disallow: /dev/
+Disallow: /test/
+Disallow: /beta/
+
+# Prevent crawling of non-public user data
+Disallow: /users/*/private
+Disallow: /account/
+Disallow: /settings/
+
+# Allow crawling of localized content
+Allow: /en/
+Allow: /de/
+
+# Prevent crawling of response files
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
+Disallow: /*.vtt$
+
+# Prevent crawling of asset files
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+Disallow: /*.xls$
+Disallow: /*.xlsx$
+
+# Crawl-delay directive for rate limiting (in seconds)
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://centralchat.me/sitemap.xml
+Sitemap: https://centralchat.me/sitemap_de.xml
+
+# Additional rules for specific bots
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /manifest.json
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /manifest.json
+
+# Rules for Google Mobile-Friendly Test
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Rules for social media crawlers
+User-agent: Twitterbot
+Allow: /
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+
+User-agent: facebookexternalhit
+Allow: /
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+
+# Block AI training crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Block archive.org bot
+User-agent: ia_archiver
+Disallow: / 

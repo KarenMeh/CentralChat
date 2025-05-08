@@ -99,14 +99,14 @@ const Hero: React.FC = () => {
                 ))}
               </div>
 
-              <h1 className="text-4xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
                 {getTranslation('unifyMessaging')}
                 <span className="text-primary-600" aria-hidden="true">.</span>
               </h1>
 
-              <p className="text-lg text-gray-700 mb-10">
+              <h2 className="text-lg text-gray-700 mb-10">
                 {getTranslation('heroDescription')}
-              </p>
+              </h2>
 
               {/* Action buttons */}
               <div className="flex flex-col space-y-4 mb-8 justify-center md:justify-start sm:flex-row sm:space-y-0 sm:space-x-4">

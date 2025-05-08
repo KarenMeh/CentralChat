@@ -3,6 +3,18 @@ import { MessageSquare, Menu, X } from 'lucide-react';
 import { getTranslation, getCurrentLanguage } from './LanguageSelector';
 import { Helmet } from 'react-helmet'; // Add this to your dependencies if not already installed
 
+type NavigationItem = {
+  id: string;
+  translationKey: 'about' | 'features' | 'pricing' | 'integrations';
+};
+
+const navigationItems: NavigationItem[] = [
+  { id: 'about', translationKey: 'about' },
+  { id: 'features', translationKey: 'features' },
+  { id: 'pricing', translationKey: 'pricing' },
+  { id: 'integrations', translationKey: 'integrations' },
+];
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState(getCurrentLanguage());
@@ -27,7 +39,7 @@ const Header: React.FC = () => {
   const baseUrl = 'https://centralchat.me'; // Replace with your actual domain
   
   // Improved section navigation that works with language prefixes
-  const scrollToSection = (sectionId) => (e) => {
+  const scrollToSection = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
@@ -35,7 +47,24 @@ const Header: React.FC = () => {
       // Update URL without page reload
       const newUrl = `${window.location.pathname}#${sectionId}`;
       window.history.pushState({ path: newUrl }, '', newUrl);
+      if (isMenuOpen) setIsMenuOpen(false);
     }
+  };
+  
+  // Render navigation items
+  const renderNavItems = (isMobile = false) => {
+    return navigationItems.map((item) => (
+      <a
+        key={item.id}
+        href={`#${item.id}`}
+        onClick={scrollToSection(item.id)}
+        className={`text-gray-500 hover:text-primary-600 cursor-pointer ${
+          isMobile ? 'py-2 font-medium' : ''
+        }`}
+      >
+        {getTranslation(item.translationKey)}
+      </a>
+    ));
   };
   
   return (
@@ -46,9 +75,9 @@ const Header: React.FC = () => {
         <html lang={language} />
         
         {/* Add hreflang annotations for search engines */}
-        <link rel="alternate" hreflang="en" href={`${baseUrl}${currentPath}`} />
-        <link rel="alternate" hreflang="de" href={`${baseUrl}/de${currentPath}`} />
-        <link rel="alternate" hreflang="x-default" href={`${baseUrl}${currentPath}`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}${currentPath}`} />
+        <link rel="alternate" hrefLang="de" href={`${baseUrl}/de${currentPath}`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}${currentPath}`} />
         
         {/* Update title and meta description based on language */}
         <title>{language === 'en' ? 'CentralChat.ai - Unified Messaging Platform' : 'CentralChat.ai - Einheitliche Messaging-Plattform'}</title>
@@ -56,8 +85,8 @@ const Header: React.FC = () => {
           name="description" 
           content={
             language === 'en' 
-              ? 'Advanced AI chatbot platform providing seamless communication and smart automation solutions for businesses.' 
-              : 'Fortschrittliche KI-Chatbot-Plattform für nahtlose Kommunikation und intelligente Automatisierungslösungen für Unternehmen.'
+              ? 'AI-powered platform that unifies WhatsApp, Facebook, and Instagram messaging into one interface. Streamline customer communication with smart automation.' 
+              : 'KI-gestützte Plattform, die WhatsApp, Facebook und Instagram-Nachrichten in einer Oberfläche vereint. Optimieren Sie die Kundenkommunikation mit intelligenter Automatisierung.'
           } 
         />
       </Helmet>
@@ -77,42 +106,14 @@ const Header: React.FC = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex items-center space-x-6">
-              {/* Fixed section links that work with language prefix */}
-              <a 
-                href={`#about`} 
-                onClick={scrollToSection('about')} 
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
-              >
-                {getTranslation('about')}
-              </a>
-              <a 
-                href={`#features`} 
-                onClick={scrollToSection('features')} 
-                className="text-gray-500 hover:text-gray-600 cursor-pointer"
-              >
-                {getTranslation('features')}
-              </a>
-              <a 
-                href={`#pricing`} 
-                onClick={scrollToSection('pricing')} 
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
-              >
-                {getTranslation('pricing')}
-              </a>
-              <a 
-                href={`#integrations`} 
-                onClick={scrollToSection('integrations')} 
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
-              >
-                {getTranslation('integrations')}
-              </a>
+              {renderNavItems()}
             </nav>
             
             <div className="flex items-center space-x-4">
               {/* Language Flag Button with improved accessibility */}
               <button 
                 onClick={toggleLanguage}
-                className="h-6 w-8 overflow-hidden rounded shadow hover:shadow-md"
+                className="h-6 w-8 overflow-hidden rounded shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                 aria-label={language === 'en' ? 'Switch to German' : 'Switch to English'}
               >
                 {language === 'en' ? (
@@ -140,26 +141,28 @@ const Header: React.FC = () => {
                 )}
               </button>
               
-              <a 
-                href={`#contact`} 
-                onClick={scrollToSection('contact')} 
+              <a
+                href="#contact"
+                onClick={scrollToSection('contact')}
                 className="bg-primary-500 text-white px-5 py-2 rounded-md hover:bg-primary-700 transition-colors"
               >
                 {getTranslation('contactUs')}
               </a>
 
-              <a 
-                href="https://app.centralchat.me" 
+              <a
+                href="https://app.centralchat.me"
                 className="border border-primary-600 text-primary-600 px-5 py-2 rounded-md hover:bg-primary-50 transition-colors"
                 hrefLang={language}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {getTranslation('logIn') || 'Log In'}
+                {language === 'en' ? 'Log In' : 'Anmelden'}
               </a>
             </div>
           </div>
           
           <button 
-            className="md:hidden text-gray-700"
+            className="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 p-2 rounded-md"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
@@ -172,46 +175,7 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <nav className="flex flex-col px-4 py-2">
-              <a 
-                href={`#features`} 
-                onClick={(e) => {
-                  scrollToSection('features')(e);
-                  setIsMenuOpen(false); // Close menu after clicking
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                {getTranslation('features')}
-              </a>
-              <a 
-                href={`#pricing`} 
-                onClick={(e) => {
-                  scrollToSection('pricing')(e);
-                  setIsMenuOpen(false);
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                {getTranslation('pricing')}
-              </a>
-              <a 
-                href={`#integrations`} 
-                onClick={(e) => {
-                  scrollToSection('integrations')(e);
-                  setIsMenuOpen(false);
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                {getTranslation('integrations')}
-              </a>
-              <a 
-                href={`#about`} 
-                onClick={(e) => {
-                  scrollToSection('about')(e);
-                  setIsMenuOpen(false);
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                {getTranslation('about')}
-              </a>
+              {renderNavItems(true)}
               
               {/* Mobile Language Flag Button */}
               <div className="py-2 flex items-center">
@@ -247,22 +211,22 @@ const Header: React.FC = () => {
                 <span className="ml-2 text-gray-500">{language === 'en' ? 'English' : 'Deutsch'}</span>
               </div>
              
-              <a 
-                href={`#contact`} 
-                onClick={(e) => {
-                  scrollToSection('contact')(e);
-                  setIsMenuOpen(false);
-                }}
+              <a
+                href="#contact"
+                onClick={scrollToSection('contact')}
                 className="mt-2 bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors text-center cursor-pointer"
               >
                 {getTranslation('contactUs')}
               </a>
-              <a 
-                href="https://app.centralchat.me" 
+
+              <a
+                href="https://app.centralchat.me"
                 className="mt-2 border border-primary-600 text-primary-600 px-4 py-2 rounded-md hover:bg-primary-50 transition-colors text-center"
                 hrefLang={language}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {getTranslation('logIn') || 'Log In'}
+                {language === 'en' ? 'Log In' : 'Anmelden'}
               </a>
             </nav>
           </div>
