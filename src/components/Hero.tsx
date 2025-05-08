@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
                 <span className="text-primary-600" aria-hidden="true">.</span>
               </h1>
 
-              <h2 className="text-lg text-gray-700 mb-10">
+              <h2 className="text-lg md:text-xl text-gray-700 mb-10">
                 {getTranslation('heroDescription')}
               </h2>
 
@@ -191,7 +191,7 @@ const Hero: React.FC = () => {
           
           {/* Mobile Video - Separate from main content to appear below - only visible on mobile */}
           <div className="md:hidden w-full mt-12 mb-6">
-            <h3 className="text-xl font-semibold text-center mb-6 ">{getTranslation('watchDemo')}</h3>
+            <h2 className="text-xl font-semibold text-center mb-6">{getTranslation('watchDemo')}</h2>
             <div
               className="relative rounded-xl shadow-xl overflow-hidden bg-gray-900 mx-auto"
               onClick={() => toggleVideo(true)}
