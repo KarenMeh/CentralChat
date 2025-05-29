@@ -1,0 +1,65 @@
+# CentralChat.ai robots.txt
+
+# Allow all robots full access by default
+User-agent: *
+Allow: /
+
+# Important pages that should be crawled
+Allow: /features
+Allow: /pricing
+Allow: /about
+Allow: /contact
+Allow: /blog
+
+# Sitemap location
+Sitemap: https://centralchat.me/sitemap.xml
+
+# Prevent crawling of non-public areas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /dev/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /beta/
+
+# Prevent crawling of search results
+Disallow: /search?
+Disallow: /*?q=
+Disallow: /*?query=
+
+# Media and asset optimizations
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.css$
+Allow: /*.js$
+
+# Crawl-delay directive for rate limiting (in seconds)
+Crawl-delay: 1
+
+# Additional rules for specific bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Google-specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+User-agent: Googlebot-Mobile
+Allow: / 

@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
           <div className="md:col-span-2 text-center">
             <div className="mt-4 text-gray-400 mb-4">
               <p>&copy; 2025 CentralChat.ai. All rights reserved.</p>
-              <div className="mt-2 flex flex-col items-center justify-center">
-                <span className="text-sm mb-3">Developed by</span>
-                <a href="https://d3.net" className="flex items-center justify-center hover:text-white transition-colors">
-                  <img src="/D3.png" alt="My Custom Logo" className="h-9 w-auto" />
-                </a>
+              <p className="text-sm mt-2">Central Chat – a product of d3.net</p>
+              <div className="mt-4 flex flex-wrap justify-center gap-4">
+                <a href="/legal-notice" className="text-sm hover:text-white transition-colors">Legal Notice</a>
+                <a href="/terms" className="text-sm hover:text-white transition-colors">Terms & Conditions</a>
+                <a href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</a>
               </div>
             </div>
           </div>

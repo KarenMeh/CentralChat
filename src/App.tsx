@@ -8,6 +8,8 @@ import Pricing from './components/Pricing';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Testimonials from './components/Testimonials';
+import UseCases from './components/UseCases';
 
 function App() {
   return (
@@ -16,8 +18,10 @@ function App() {
       <Hero />
       <About />
       <Features />
-     <Integrations />
+      <UseCases />
+      <Integrations />
       <ChatInterface />
+      <Testimonials />
       <Pricing />  
       <Contact />
       <Footer />

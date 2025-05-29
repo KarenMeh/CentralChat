@@ -1,0 +1,45 @@
+{
+  "name": "CentralChat.ai",
+  "short_name": "CentralChat",
+  "description": "Fortschrittliche KI-Chatbot-Plattform für nahtlose Kommunikation und intelligente Automatisierungslösungen für Unternehmen.",
+  "start_url": "/de/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#468BE5FF",
+  "icons": [
+    {
+      "src": "/cc_logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/cc_logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["business", "productivity", "communication"],
+  "lang": "de",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Dashboard öffnen",
+      "short_name": "Dashboard",
+      "description": "Messaging-Dashboard anzeigen",
+      "url": "/de/dashboard",
+      "icons": [{ "src": "/dashboard-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Neuer Chat",
+      "short_name": "Chat",
+      "description": "Neuen Chat starten",
+      "url": "/de/chat/new",
+      "icons": [{ "src": "/chat-icon.png", "sizes": "96x96" }]
+    }
+  ]
+} 

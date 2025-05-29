@@ -24,7 +24,7 @@ const translations = {
     heroDescription: 'CentralChat.ai consolidates WhatsApp, Facebook, and Instagram into a single platform, enhanced with AI-powered responses.',
     requestDemo: 'Show Demo',
     exploreFeatures: 'Explore Features',
-    watchDemo: 'Watch how CentralChat.ai streamlines your customer communication',
+    watchDemo: 'See CentralChat in Action',
     demoFeatures: 'Featuring our unified inbox, AI responses, and seamless channel switching',
 
     // Features Section
@@ -89,7 +89,7 @@ const translations = {
     heroDescription: 'CentralChat.ai vereint WhatsApp, Facebook, und Instagram in einer einzigen Plattform, erweitert durch KI-gestützte Antworten.',
     requestDemo: 'Demo anzeigen',
     exploreFeatures: 'Funktionen entdecken',
-    watchDemo: 'Sehen Sie, wie CentralChat.ai Ihre Kundenkommunikation optimiert',
+    watchDemo: 'See CentralChat in Action',
     demoFeatures: 'Mit unserem einheitlichen Posteingang, KI-Antworten und nahtlosem Kanalwechsel',
 
     // Features Section

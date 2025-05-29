@@ -15,52 +15,54 @@ const Pricing: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-xl overflow-hidden">
             <div className="bg-primary-500 p-6 text-white text-center">
-              <h3 className="text-2xl font-bold mb-2">Business Plan</h3>
+              <h3 className="text-2xl font-bold mb-2">Base Plan</h3>
               <div className="flex items-center justify-center">
-                <span className="text-4xl font-bold">€200</span>
+                <span className="text-4xl font-bold">€100</span>
                 <span className="ml-2 text-primary-100">/month</span>
               </div>
-              <p className="mt-2 text-primary-100">Plus LLM and messaging costs</p>
+              <p className="mt-2 text-primary-100">net, excl. VAT</p>
             </div>
             
             <div className="p-6">
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Unlimited integration of channels (WhatsApp, Facebook, and Instagram)</span>
+                  <span>Full chat inbox across all channels</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Unlimited number of users</span>
+                  <span>Up to 5 users</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>AI-powered chatbot with GDPR-compliant LLM from IONOS</span>
+                  <span>Up to 5 channels</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Multi-language support with automatic language detection</span>
+                  <span>Role-based access, tracking, and full message history</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Escalation to support team via TEAMSTAR</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Chatbot training and continuous learning</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Display of logos for immediate recognition of communication channels</span>
+                  <span>Onboarding & dedicated account manager</span>
                 </li>
               </ul>
               
               <div className="mt-8 bg-gray-50 p-4 rounded-md">
-                <h4 className="font-semibold text-gray-900 mb-2">Additional Costs:</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">Add-ons:</h4>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• GDPR-compliant LLM from IONOS (based on usage)</li>
-                  <li>• Meta messaging fees (based on volume)</li>
-                  <li>• 10% service fee on these costs/services</li>
+                  <li>• Additional Users: +€10/month per user</li>
+                  <li>• Additional Channels: +€10/month per channel</li>
+                  <li>• AI Chatbot: +€100/month</li>
+                  <li>• AI Agent (per action): +€200/month</li>
+                </ul>
+              </div>
+
+              <div className="mt-8 bg-gray-50 p-4 rounded-md">
+                <h4 className="font-semibold text-gray-900 mb-2">Terms:</h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Monthly Subscription - Cancel anytime at the end of each billing cycle</li>
+                  <li>• Transparent Pricing - No setup fees, no hidden costs</li>
+                  <li>• All prices are net (VAT will be added where applicable)</li>
                 </ul>
               </div>
               
