@@ -99,17 +99,17 @@ const Hero: React.FC = () => {
                 ))}
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-3 max-w-3xl mx-auto md:mx-0">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 max-w-3xl mx-auto md:mx-0">
                 <span className="block mb-0.5">One Central Chat</span>
-                <span className="block text-primary-500">All Conversations, One Place.</span>
-                <span className="block mt-0.5 text-gray-700 text-3xl md:text-4xl">Powered by AI.</span>
+                <span className="text-primary-500 whitespace-nowrap text-[90%]">All Conversations, One Place.</span>
+                <span className="block mt-0.5 text-gray-700 text-2xl md:text-3xl">Powered by AI.</span>
               </h1>
 
-              <h2 className="text-lg text-gray-700 mb-4">
+              <h2 className="text-base text-gray-700 mb-4">
                 AI-enhanced, API-first, and role-based. Know exactly who replied what and when – while bots and agents handle the rest.
               </h2>
 
-              <p className="text-base text-gray-600 mb-6">
+              <p className="text-sm text-gray-600 mb-6">
                 Tired of juggling messages across WhatsApp, Facebook, Instagram, Email, and other channels? CentralChat unifies all communication into one shared, browser-based inbox—seamlessly usable on desktop and mobile. Gain complete visibility, automate routine requests with chatbots, and let AI agents trigger actions across your systems when needed.
               </p>
 

@@ -6,10 +6,10 @@ const Pricing: React.FC = () => {
     <section id="pricing" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Pricing</h2>
+          {/* <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Get started with CentralChat.ai and transform your customer communication experience.
-          </p>
+          </p> */}
         </div>
         
         <div className="max-w-4xl mx-auto">

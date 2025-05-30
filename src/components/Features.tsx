@@ -59,12 +59,12 @@ const Features: React.FC = () => {
     <section id="features" className="py-24 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400">
-            Powerful Features
+          <h2 className="text-4xl md:text-4xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400">
+          Key Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             CentralChat.ai combines cutting-edge AI with seamless integration to transform your customer communication.
-          </p>
+          </p> */}
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
