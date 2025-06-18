@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Integrations from './components/Integrations';
-import ChatInterface from './components/ChatInterface';
+// import ChatInterface from './components/ChatInterface';
 import Pricing from './components/Pricing';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -20,7 +20,7 @@ function App() {
       <Features />
       <UseCases />
       <Integrations />
-      <ChatInterface />
+      {/* <ChatInterface /> */}
       <Testimonials />
       <Pricing />  
       <Contact />

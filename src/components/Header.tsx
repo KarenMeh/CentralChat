@@ -64,43 +64,43 @@ const Header: React.FC = () => {
       </Helmet>
       
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <img 
-              src="https://centralchat.me/ccentral.png" 
+              src="/c.png" 
               alt="CentralChat Logo" 
-              className="h-10 w-auto" 
-              width="120" 
-              height="40"
+              className="h-5 sm:h-7 w-auto" 
+              width="80" 
+              height="30"
             />
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            <nav className="flex items-center space-x-4 lg:space-x-6">
               <a 
                 href="/"
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+                className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
                 Home
               </a>
               <a 
                 href="#features" 
                 onClick={scrollToSection('features')} 
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+                className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
                 {getTranslation('features')}
               </a>
               <a 
                 href="#use-cases" 
                 onClick={scrollToSection('use-cases')} 
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+                className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
                 Use Cases
               </a>
               <a 
                 href="#pricing" 
                 onClick={scrollToSection('pricing')} 
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+                className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
                 {getTranslation('pricing')}
               </a>
@@ -108,28 +108,28 @@ const Header: React.FC = () => {
                 href="https://developer.centralchat.me" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-primary-600 cursor-pointer"
+                className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
                 API Documentation
               </a>
             </nav>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 lg:space-x-4">
               <button 
                 onClick={toggleLanguage}
-                className="text-gray-500 hover:text-primary-600 flex items-center space-x-1"
+                className="text-gray-500 hover:text-primary-600 flex items-center space-x-1 px-2 py-1 transition-colors duration-200"
                 aria-label={language === 'en' ? 'Switch to German' : 'Switch to English'}
               >
-                <span className={language === 'en' ? 'font-semibold' : ''}>🇺🇸</span>
+                <span className={`text-base ${language === 'en' ? 'font-semibold' : ''}`}>🇺🇸</span>
                 <span className="text-gray-300">|</span>
-                <span className={language === 'de' ? 'font-semibold' : ''}>🇩🇪</span>
+                <span className={`text-base ${language === 'de' ? 'font-semibold' : ''}`}>🇩🇪</span>
               </button>
               
               <a 
                 href="https://app.centralchat.me" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary-500 text-white px-5 py-2 rounded-md hover:bg-primary-700 transition-colors"
+                className="bg-primary-500 text-white px-4 lg:px-5 py-2 rounded-md hover:bg-primary-700 transition-colors duration-200 text-sm lg:text-base whitespace-nowrap"
               >
                 Login
               </a>
@@ -137,7 +137,7 @@ const Header: React.FC = () => {
           </div>
           
           <button 
-            className="md:hidden text-gray-700"
+            className="md:hidden text-gray-700 p-2 -mr-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
@@ -146,78 +146,80 @@ const Header: React.FC = () => {
           </button>
         </div>
         
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <nav className="flex flex-col px-4 py-2">
-              <a 
-                href="/"
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
+        {/* Mobile menu with improved transitions */}
+        <div 
+          className={`md:hidden bg-white border-t transform transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          } overflow-hidden`}
+        >
+          <nav className="flex flex-col px-4 py-2 space-y-1">
+            <a 
+              href="/"
+              className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
+            >
+              Home
+            </a>
+            <a 
+              href="#features" 
+              onClick={(e) => {
+                scrollToSection('features')(e);
+                setIsMenuOpen(false);
+              }} 
+              className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
+            >
+              {getTranslation('features')}
+            </a>
+            <a 
+              href="#use-cases" 
+              onClick={(e) => {
+                scrollToSection('use-cases')(e);
+                setIsMenuOpen(false);
+              }} 
+              className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
+            >
+              Use Cases
+            </a>
+            <a 
+              href="#pricing" 
+              onClick={(e) => {
+                scrollToSection('pricing')(e);
+                setIsMenuOpen(false);
+              }} 
+              className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
+            >
+              {getTranslation('pricing')}
+            </a>
+            <a 
+              href="https://developer.centralchat.me" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
+            >
+              API Documentation
+            </a>
+            
+            <div className="py-3 px-2">
+              <button 
+                onClick={toggleLanguage}
+                className="text-gray-500 hover:text-primary-600 flex items-center space-x-1 transition-colors duration-200"
+                aria-label={language === 'en' ? 'Switch to German' : 'Switch to English'}
               >
-                Home
-              </a>
-              <a 
-                href="#features" 
-                onClick={(e) => {
-                  scrollToSection('features')(e);
-                  setIsMenuOpen(false);
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                {getTranslation('features')}
-              </a>
-              <a 
-                href="#use-cases" 
-                onClick={(e) => {
-                  scrollToSection('use-cases')(e);
-                  setIsMenuOpen(false);
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                Use Cases
-              </a>
-              <a 
-                href="#pricing" 
-                onClick={(e) => {
-                  scrollToSection('pricing')(e);
-                  setIsMenuOpen(false);
-                }} 
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                {getTranslation('pricing')}
-              </a>
-              <a 
-                href="https://developer.centralchat.me" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-2 text-gray-500 hover:text-primary-600 font-medium cursor-pointer"
-              >
-                API Documentation
-              </a>
-              
-              <div className="py-2">
-                <button 
-                  onClick={toggleLanguage}
-                  className="text-gray-500 hover:text-primary-600 flex items-center space-x-1"
-                  aria-label={language === 'en' ? 'Switch to German' : 'Switch to English'}
-                >
-                  <span className={language === 'en' ? 'font-semibold' : ''}>🇺🇸</span>
-                  <span className="text-gray-300">|</span>
-                  <span className={language === 'de' ? 'font-semibold' : ''}>🇩🇪</span>
-                </button>
-              </div>
-             
-              <a 
-                href="https://app.centralchat.me" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors text-center"
-              >
-                Login
-              </a>
-            </nav>
-          </div>
-        )}
+                <span className={`text-lg ${language === 'en' ? 'font-semibold' : ''}`}>🇺🇸</span>
+                <span className="text-gray-300">|</span>
+                <span className={`text-lg ${language === 'de' ? 'font-semibold' : ''}`}>🇩🇪</span>
+              </button>
+            </div>
+           
+            <a 
+              href="https://app.centralchat.me" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 bg-primary-600 text-white px-4 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-center font-medium"
+            >
+              Login
+            </a>
+          </nav>
+        </div>
       </header>
     </>
   );

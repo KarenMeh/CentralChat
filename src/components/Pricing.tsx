@@ -60,10 +60,16 @@ const Pricing: React.FC = () => {
               <div className="mt-8 bg-gray-50 p-4 rounded-md">
                 <h4 className="font-semibold text-gray-900 mb-2">Terms:</h4>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Monthly Subscription - Cancel anytime at the end of each billing cycle</li>
-                  <li>• Transparent Pricing - No setup fees, no hidden costs</li>
-                  <li>• All prices are net (VAT will be added where applicable)</li>
+                  <li>• <strong>Monthly Subscription</strong> - You’re never locked in. We believe in earning your trust month after month—cancel anytime at the end of each billing cycle.</li>
+                  <li>• <strong>Transparent Pricing</strong> - No setup fees, no hidden costs. All prices are net (VAT will be added where applicable).</li>
                 </ul>
+              </div>
+
+              <div className="mt-8 bg-gray-50 p-4 rounded-md">
+                {/* <h4 className="font-semibold text-gray-900 mb-2">Integration & AI Capabilities:</h4> */}
+                <p className="text-sm text-gray-700 mb-3">
+                  We offer seamless integration with systems such as CRM, ERP, PMS, and ticketing platforms. In addition to implementing CentralChat.ai into your environment, we can also integrate AI agents directly into your internal systems — giving them the tools and capabilities to autonomously perform tasks such as checking order statuses, making purchases, reporting issues, and much more, depending on your specific needs.
+                </p>
               </div>
               
               <div className="mt-8 text-center">

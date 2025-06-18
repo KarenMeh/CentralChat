@@ -249,6 +249,7 @@ const Hero: React.FC = () => {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" aria-hidden="true" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-white font-medium text-lg">{getTranslation('watchDemo')}</p>
                 <p className="text-gray-200 text-sm mt-2">Learn how CentralChat merges communication, enables collaboration, and delivers automation - with full team control and powerful integrations.</p>
               </div>
             </div>
@@ -269,17 +270,6 @@ const Hero: React.FC = () => {
                 <ChevronDown className="h-6 w-6 text-primary-600" aria-hidden="true" />
               </button>
             </div>
-          </div>
-
-          {/* Desktop Scroll indicator */}
-          <div className="hidden md:flex absolute bottom-9 left-0 right-0 justify-center">
-            <button
-              onClick={scrollToContent}
-              className="animate-bounce bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-              aria-label="Scroll to content"
-            >
-              <ChevronDown className="h-6 w-6 text-primary-600" aria-hidden="true" />
-            </button>
           </div>
         </div>
       </section>

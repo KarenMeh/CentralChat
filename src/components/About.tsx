@@ -59,63 +59,22 @@ const About: React.FC = () => {
           
           <div className="w-full max-w-4xl mx-auto">
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100">
-              <p className="text-xl text-gray-700 leading-relaxed">
-                CentralChat.ai is a powerful multi-channel chatbot platform that allows 
-                users to manage conversations from various messaging apps like Instagram, 
-                WhatsApp, and Facebook in a single interface.
+              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+                CentralChat.ai is a powerful multi-channel chat platform that brings together communication from WhatsApp, Facebook, Instagram, and various other messengers in one unified interface.
               </p>
               
-              <div className="my-6 flex justify-center">
-                <div className="h-px w-24 bg-primary-100"></div>
-              </div>
-              
-              <p className="text-xl text-gray-700 leading-relaxed">
-                It provides automation options, AI training capabilities, and role-based access 
-                control for efficient communication management. What sets us apart is our commitment 
-                to seamless integration, privacy-first approach, and the ability to handle communication 
-                across WhatsApp, Facebook, and Instagram-all from a single, 
-                intuitive interface.
+              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+                Built on our API-First-Approach, CentralChat.ai integrates seamlessly into existing ecosystems such as CRM, ERP, PMS, or ticketing systems – ensuring maximum efficiency in customer communication.
               </p>
-              
-              <div className="mt-8 bg-primary-50 p-6 rounded-xl border-l-4 border-primary-400">
-                <p className="text-lg text-primary-700 italic">
-                  "Our AI-powered responses learn and adapt while maintaining the human touch that customers value."
-                </p>
-              </div>
+
+              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+                While CentralChat.ai works perfectly on its own, we also offer fully integrated, GDPR-compliant chatbots and next-generation AI agents as an optional add-on. These are custom-trained using your FAQs, previous conversations, and other relevant training data. On request, we also handle full integration into your systems — enabling agents to actively perform tasks such as managing bookings, checking order statuses, or processing customer inquiries in real time.
+              </p>
+
+              <p className="text-xl text-gray-700 leading-relaxed">
+                With a strong focus on privacy, seamless integration, and usability, CentralChat.ai offers a central, intuitive interface for cross-channel communication – efficient, secure, and future-ready.
+              </p>
             </div>
-          </div>
-        </div>
-        
-        {/* Features */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-            <div className="text-primary-500 mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Seamless Integration</h3>
-            <p className="text-gray-600">Connect all your messaging platforms in one intuitive interface.</p>
-          </div>
-          
-          <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-            <div className="text-primary-500 mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">AI-Powered</h3>
-            <p className="text-gray-600">Smart responses that adapt to your communication style.</p>
-          </div>
-          
-          <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-            <div className="text-primary-500 mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Privacy-First</h3>
-            <p className="text-gray-600">Your conversations and data remain secure and protected.</p>
           </div>
         </div>
       </div>
