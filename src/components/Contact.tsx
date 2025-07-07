@@ -55,46 +55,8 @@ ${formData.message}
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row">
-          <div className="md:w-1/3 bg-blue-500 text-white p-8 rounded-t-lg md:rounded-l-lg md:rounded-tr-none">
-            <h3 className="text-xl font-semibold mb-10">Contact Information</h3>
-            
-            <div className="space-y-9">
-              <div className="flex items-start">
-                <Mail className="h-6 w-6 mr-3 mt-0.5" />
-                <div>
-                  <p className="font-medium">Email</p>
-                  <a href="mailto:Hello@CentralChat.des" className="text-blue-100 hover:text-white">
-                    Hello@CentralChat.des
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 mr-3 mt-0.5" />
-                <div>
-                  <p className="font-medium">Phone</p>
-                  <a href="tel:+4912345678" className="text-blue-100 hover:text-white">
-                    +49 123 456 78
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <MapPin className="h-6 w-6 mr-3 mt-0.5" />
-                <div>
-                  <p className="font-medium">Address</p>
-                  <p className="text-blue-100">
-                    Langenstr. 34,<br />
-                    28195 Bremen,<br />
-                    Germany
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="md:w-2/3 bg-white p-8 rounded-b-lg md:rounded-r-lg md:rounded-bl-none shadow-lg">
+        <div className="max-w-5xl mx-auto flex flex-col items-center justify-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold text-gray-900 mb-6">Send us a Message</h3>
             
             {status.submitted ? (
@@ -176,7 +138,7 @@ ${formData.message}
                   disabled={status.loading}
                   className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center disabled:opacity-50"
                 >
-                  {status.loading ? 'Sending...' : 'Send Message with Gmail'}
+                  {status.loading ? 'Sending...' : 'Send Message '}
                   <Send className="ml-2 h-4 w-4" />
                 </button>
               </div>
