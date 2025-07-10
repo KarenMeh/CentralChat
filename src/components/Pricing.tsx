@@ -1,92 +1,93 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { getTranslation } from './LanguageSelector';
 
 const Pricing: React.FC = () => {
   return (
     <section id="pricing" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Pricing</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{getTranslation('pricingTitle')}</h2>
           {/* <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Get started with CentralChat.ai and transform your customer communication experience.
+            {getTranslation('pricingDescription')}
           </p> */}
         </div>
         
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-xl overflow-hidden">
             <div className="bg-primary-500 p-6 text-white text-center">
-              <h3 className="text-2xl font-bold mb-2">Base Plan</h3>
+              <h3 className="text-2xl font-bold mb-2">{getTranslation('businessPlan')}</h3>
               <div className="flex items-center justify-center">
                 <span className="text-4xl font-bold">€100</span>
-                <span className="ml-2 text-primary-100">/month</span>
+                <span className="ml-2 text-primary-100">{getTranslation('perMonth')}</span>
               </div>
-              <p className="mt-2 text-primary-100">net, excl. VAT</p>
+              <p className="mt-2 text-primary-100">{getTranslation('netExclVat')}</p>
             </div>
             
             <div className="p-6">
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Full chat inbox across all channels</span>
+                  <span>{getTranslation('fullChatInbox')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Up to 5 users</span>
+                  <span>{getTranslation('upTo5Users')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Up to 5 channels</span>
+                  <span>{getTranslation('upTo5Channels')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Role-based access, tracking, and full message history</span>
+                  <span>{getTranslation('roleBasedAccess')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
-                  <span>Onboarding & dedicated account manager</span>
+                  <span>{getTranslation('onboardingAccountManager')}</span>
                 </li>
               </ul>
               
               <div className="mt-8 bg-gray-50 p-4 rounded-md">
-                <h4 className="font-semibold text-gray-900 mb-2">Add-ons:</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{getTranslation('addOns')}:</h4>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Additional Users: +€10/month per user</li>
-                  <li>• Additional Channels: +€10/month per channel</li>
-                  <li>• AI Chatbot: +€100/month</li>
-                  <li>• AI Agent (per action): +€200/month</li>
+                  <li>• {getTranslation('additionalUsers')}: +€10{getTranslation('perMonth')} {getTranslation('perUser')}</li>
+                  <li>• {getTranslation('additionalChannels')}: +€10{getTranslation('perMonth')} {getTranslation('perChannel')}</li>
+                  <li>• {getTranslation('aiChatbot')}: +€100{getTranslation('perMonth')}</li>
+                  <li>• {getTranslation('aiAgent')} ({getTranslation('perAction')}): +€200{getTranslation('perMonth')}</li>
                 </ul>
               </div>
 
               <div className="mt-8 bg-gray-50 p-4 rounded-md">
-                <h4 className="font-semibold text-gray-900 mb-2">Terms:</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{getTranslation('terms')}:</h4>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• <strong>Monthly Subscription</strong> - You’re never locked in. We believe in earning your trust month after month—cancel anytime at the end of each billing cycle.</li>
-                  <li>• <strong>Transparent Pricing</strong> - No setup fees, no hidden costs. All prices are net (VAT will be added where applicable).</li>
+                  <li>• <strong>{getTranslation('monthlySubscription')}</strong> - {getTranslation('monthlySubscriptionDesc')}</li>
+                  <li>• <strong>{getTranslation('transparentPricing')}</strong> - {getTranslation('transparentPricingDesc')}</li>
                 </ul>
               </div>
 
               <div className="mt-8 bg-gray-50 p-4 rounded-md">
                 {/* <h4 className="font-semibold text-gray-900 mb-2">Integration & AI Capabilities:</h4> */}
                 <p className="text-sm text-gray-700 mb-3">
-                  We offer seamless integration with systems such as CRM, ERP, PMS, and ticketing platforms. In addition to implementing CentralChat.ai into your environment, we can also integrate AI agents directly into your internal systems — giving them the tools and capabilities to autonomously perform tasks such as checking order statuses, making purchases, reporting issues, and much more, depending on your specific needs.
+                  {getTranslation('integrationAICapabilities')}
                 </p>
               </div>
               
               <div className="mt-8 text-center">
                 <a href="#contact" className="inline-block bg-primary-500 text-white px-8 py-3 rounded-md hover:bg-primary-700 transition-colors">
-                  Get Started
+                  {getTranslation('getStarted')}
                 </a>
               </div>
             </div>
           </div>
           
           {/* <div className="mt-8 bg-white p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Need a Custom Solution?</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">{getTranslation('customSolution')}</h3>
             <p className="text-gray-700 mb-4">
-              Contact us for custom integrations, enterprise pricing, or specific requirements.
+              {getTranslation('customSolutionDesc')}
             </p>
             <a href="#contact" className="inline-block border border-primary-500 text-primary-500 px-6 py-2 rounded-md hover:bg-primary-50 transition-colors">
-              Contact Sales
+              {getTranslation('contactSales')}
             </a>
           </div> */}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hexagon } from 'lucide-react';
+import { getTranslation } from './LanguageSelector';
 
 const Footer: React.FC = () => {
   return (
@@ -11,19 +12,19 @@ const Footer: React.FC = () => {
               <img src="/footer1.png" alt="CentralChat Logo" className="h-10 w-30 text-primary-500" />
             </div>
             <p className="text-gray-400 mb-2">
-              Unify all your messaging channels in one place with AI-powered responses.
+              {getTranslation('footerDescription')}
             </p>
             <p className="text-xs text-gray-500 mt-1">v0.8.1 Beta</p>
           </div>
 
           <div className="md:col-span-2 text-center">
             <div className="mt-4 text-gray-400 mb-4">
-              <p>&copy; 2025 CentralChat.ai. All rights reserved.</p>
-              <p className="text-sm mt-2">CentralChat.ai is a product of <a href="https://d3.net/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">d3.net</a></p>
+              <p>&copy; 2025 CentralChat.ai. {getTranslation('allRightsReserved')}</p>
+              <p className="text-sm mt-2">CentralChat.ai {getTranslation('isProductOf')} <a href="https://d3.net/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">d3.net</a></p>
               <div className="mt-4 flex flex-wrap justify-center gap-4">
-                <a href="/legal-notice" className="text-sm hover:text-white transition-colors">Legal Notice</a>
-                <a href="/terms" className="text-sm hover:text-white transition-colors">Terms & Conditions</a>
-                <a href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/legal-notice" className="text-sm hover:text-white transition-colors">{getTranslation('legalNotice')}</a>
+                <a href="/terms" className="text-sm hover:text-white transition-colors">{getTranslation('termsConditions')}</a>
+                <a href="/privacy" className="text-sm hover:text-white transition-colors">{getTranslation('privacyPolicy')}</a>
               </div>
             </div>
           </div>

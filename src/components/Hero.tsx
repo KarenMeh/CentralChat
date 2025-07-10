@@ -100,17 +100,17 @@ const Hero: React.FC = () => {
               </div>
 
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 max-w-3xl mx-auto md:mx-0">
-                <span className="block mb-0.5">One Central Chat</span>
-                <span className="text-primary-500 whitespace-nowrap text-[90%]">All Conversations, One Place.</span>
-                <span className="block mt-0.5 text-gray-700 text-2xl md:text-3xl">Powered by AI.</span>
+                <span className="block mb-0.5">{getTranslation('oneCentralChat')}</span>
+                <span className="text-primary-500 whitespace-nowrap text-[90%]">{getTranslation('allConversationsOnePlace')}</span>
+                <span className="block mt-0.5 text-gray-700 text-2xl md:text-3xl">{getTranslation('poweredByAI')}</span>
               </h1>
 
               <h2 className="text-base text-gray-700 mb-4">
-                AI-enhanced, API-first, and role-based. Know exactly who replied what and when – while bots and agents handle the rest.
+                {getTranslation('heroSubtitle')}
               </h2>
 
               <p className="text-sm text-gray-600 mb-6">
-                Tired of juggling messages across WhatsApp, Facebook, Instagram, Email, and other channels? CentralChat unifies all communication into one shared, browser-based inbox—seamlessly usable on desktop and mobile. Gain complete visibility, automate routine requests with chatbots, and let AI agents trigger actions across your systems when needed.
+                {getTranslation('heroDescription')}
               </p>
 
               {/* Action buttons */}
@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
                   className="bg-primary-500 text-white px-6 py-4 rounded-md hover:bg-primary-700 transition-colors flex items-center justify-center font-medium"
                   role="button"
                 >
-                  Start Now – from €100/month
+                  {getTranslation('startNow')} – {getTranslation('from100PerMonth')}
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </a>
                 <a 
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
                   className="border border-primary-500 text-primary-500 px-6 py-4 rounded-md hover:bg-primary-50 transition-colors flex items-center justify-center font-medium"
                   role="button"
                 >
-                  Book Live Demo Call
+                  {getTranslation('bookLiveDemoCall')}
                 </a>
               </div>
             </div>
@@ -187,7 +187,7 @@ const Hero: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" aria-hidden="true" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <p className="text-white font-medium text-lg">{getTranslation('watchDemo')}</p>
-                    <p className="text-gray-200 text-sm mt-2">Learn how CentralChat merges communication, enables collaboration, and delivers automation - with full team control and powerful integrations.</p>
+                    <p className="text-gray-200 text-sm mt-2">{getTranslation('learnHowCentralChat')}</p>
                   </div>
                 </div>
               </div>
@@ -250,7 +250,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" aria-hidden="true" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <p className="text-white font-medium text-lg">{getTranslation('watchDemo')}</p>
-                <p className="text-gray-200 text-sm mt-2">Learn how CentralChat merges communication, enables collaboration, and delivers automation - with full team control and powerful integrations.</p>
+                <p className="text-gray-200 text-sm mt-2">{getTranslation('learnHowCentralChat')}</p>
               </div>
             </div>
             

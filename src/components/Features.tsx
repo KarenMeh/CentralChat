@@ -1,56 +1,65 @@
 import React from 'react';
 import { MessageSquare, Users, Bot, Zap, Code, Users2, Globe, Lock, LifeBuoy } from 'lucide-react';
+import { getTranslation, translations } from './LanguageSelector';
 
-const features = [
+type TranslationKey = keyof typeof translations['en'];
+
+interface Feature {
+  icon: React.ReactNode;
+  title: TranslationKey;
+  description: TranslationKey;
+}
+
+const features: Feature[] = [
   {
     icon: <MessageSquare className="h-8 w-8 text-primary-500" />,
-    title: 'Unified Multi-Channel Inbox',
-    description: 'All customer messages from WhatsApp, Facebook, Instagram, Email, Telegram, and more - gathered in one central workspace.'
+    title: 'unifiedMessaging',
+    description: 'unifiedMessagingDesc'
   },
   {
     icon: <Users className="h-8 w-8 text-primary-500" />,
-    title: 'Role-Based Access & Accountability',
-    description: 'Assign conversations to the right team members and track every reply - who responded, what was said, and when it happened.'
+    title: 'roleBasedAccess',
+    description: 'roleBasedAccessDesc'
   },
   {
     icon: <Bot className="h-8 w-8 text-primary-500" />,
-    title: 'AI Chatbots',
-    description: 'Respond instantly to common inquiries and FAQs. Each bot is custom-trained to reflect your service logic and brand tone.'
+    title: 'aiResponses',
+    description: 'aiResponsesDesc'
   },
   {
     icon: <Zap className="h-8 w-8 text-primary-500" />,
-    title: 'AI Agents',
-    description: 'Go beyond responses: Let agents perform tasks such as retrieving booking data, checking order statuses, or even creating transactions directly in your connected systems.'
+    title: 'aiAgents',
+    description: 'aiAgentsDesc'
   },
   {
     icon: <Code className="h-8 w-8 text-primary-500" />,
-    title: 'Trigger-Based Messaging',
-    description: 'Automatically message customers when events occur—such as new bookings, CRM updates, or WhatsApp opt-ins.'
+    title: 'triggerBasedMessaging',
+    description: 'triggerBasedMessagingDesc'
   },
   {
     icon: <Code className="h-8 w-8 text-primary-500" />,
-    title: 'API-First Integration',
-    description: 'Connect to your CRM, ERP, PMS, and/or ticketing tools. Easily embed CentralChat in your operational workflows.'
+    title: 'apiFirstIntegration',
+    description: 'apiFirstIntegrationDesc'
   },
   {
     icon: <Users2 className="h-8 w-8 text-primary-500" />,
-    title: 'Multi-Agent Collaboration',
-    description: 'Let multiple staff work in the same conversation thread. Maintain clarity through reply history and visible assignments.'
+    title: 'multiAgentCollaboration',
+    description: 'multiAgentCollaborationDesc'
   },
   {
     icon: <Globe className="h-8 w-8 text-primary-500" />,
-    title: 'Responsive Web App',
-    description: 'Works flawlessly in all modern browsers—on desktop and mobile. No separate app download required.'
+    title: 'responsiveWebApp',
+    description: 'responsiveWebAppDesc'
   },
   {
     icon: <Lock className="h-8 w-8 text-primary-500" />,
-    title: 'GDPR-Ready & Privacy-First',
-    description: 'Hosted on servers in Germany with self-hosted LLMs—ensuring maximum privacy and full compliance.'
+    title: 'gdprCompliant',
+    description: 'gdprCompliantDesc'
   },
   {
     icon: <LifeBuoy className="h-8 w-8 text-primary-500" />,
-    title: 'Onboarding & Dedicated Account Manager',
-    description: 'Every client receives a guided setup and a personal contact for success management.'
+    title: 'onboardingAccountManager',
+    description: 'onboardingAccountManagerDesc'
   }
 ];
 
@@ -60,10 +69,10 @@ const Features: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-4xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400">
-          Key Features
+            {getTranslation('powerfulFeatures')}
           </h2>
           {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            CentralChat.ai combines cutting-edge AI with seamless integration to transform your customer communication.
+            {getTranslation('featuresDescription')}
           </p> */}
         </div>
         
@@ -81,10 +90,10 @@ const Features: React.FC = () => {
                   {feature.icon}
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
-                  {feature.title}
+                  {getTranslation(feature.title)}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
+                  {getTranslation(feature.description)}
                 </p>
               </div>
             </div>

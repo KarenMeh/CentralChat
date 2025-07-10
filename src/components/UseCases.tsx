@@ -1,4 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { getTranslation, translations } from './LanguageSelector';
+
+type TranslationKey = keyof typeof translations['en'];
+
+interface UseCase {
+  title: TranslationKey;
+  description: TranslationKey;
+  featured?: boolean;
+}
 
 const UseCases = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,27 +34,27 @@ const UseCases = () => {
     };
   }, []);
 
-  const useCases = [
+  const useCases: UseCase[] = [
     {
-      title: "Hospitality & Rentals",
-      description: "Automate guest communication after bookings. Escalate complex cases or hand off chats to live agents when needed."
+      title: "hospitalityRentals",
+      description: "hospitalityRentalsDesc"
     },
     {
-      title: "E-Commerce",
-      description: "Answer product and order questions, provide real-time status updates, and let customers place orders directly via chat."
+      title: "ecommerce",
+      description: "ecommerceDesc"
     },
     {
-      title: "Customer Support",
-      description: "Replace scattered support messages with one central inbox. A trained bot responds immediately and forwards to the right team if necessary."
+      title: "customerSupport",
+      description: "customerSupportDesc"
     },
     {
-      title: "Sales & Lead Management",
-      description: "Qualify leads via chatbot, close deals through AI agents, or pass hot leads to your sales team—automatically and efficiently.",
+      title: "salesLeadManagement",
+      description: "salesLeadManagementDesc",
       featured: true
     },
     {
-      title: "Real Estate & Services",
-      description: "Use WhatsApp or Facebook as entry point. An AI agent fully automates the entire sales process – from lead qualification to conversion - or routes qualified leads to the sales team.",
+      title: "realEstateServices",
+      description: "realEstateServicesDesc",
       featured: true
     }
   ];
@@ -68,10 +77,10 @@ const UseCases = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400">
-            Use Cases
+            {getTranslation('useCases')}
           </h2>
           {/* <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            Discover how CentralChat.ai transforms communication across different industries
+            {getTranslation('useCasesDescription')}
           </p> */}
         </div>
         
@@ -90,10 +99,10 @@ const UseCases = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
-                  {useCase.title}
+                  {getTranslation(useCase.title)}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {useCase.description}
+                  {getTranslation(useCase.description)}
                 </p>
               </div>
             </div>
@@ -116,10 +125,10 @@ const UseCases = () => {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
-                    {useCase.title}
+                    {getTranslation(useCase.title)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    {useCase.description}
+                    {getTranslation(useCase.description)}
                   </p>
                 </div>
               </div>

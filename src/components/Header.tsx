@@ -22,13 +22,8 @@ const Header: React.FC = () => {
     localStorage.setItem('language', newLanguage);
     setLanguage(newLanguage);
     document.documentElement.lang = newLanguage;
-    
-    // Get current path and redirect to appropriate subdomain
-    const currentPath = window.location.pathname;
-    const newUrl = newLanguage === 'en' 
-      ? `https://en.centralchat.me${currentPath}`
-      : `https://de.centralchat.me${currentPath}`;
-    window.location.href = newUrl;
+    // Reload the page to ensure all components re-render with the new language
+    window.location.reload();
   };
 
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
@@ -81,7 +76,7 @@ const Header: React.FC = () => {
                 href="/"
                 className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
-                Home
+                {getTranslation('home')}
               </a>
               <a 
                 href="#features" 
@@ -95,7 +90,7 @@ const Header: React.FC = () => {
                 onClick={scrollToSection('use-cases')} 
                 className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
-                Use Cases
+                {getTranslation('useCases')}
               </a>
               <a 
                 href="#pricing" 
@@ -110,7 +105,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-primary-600 cursor-pointer px-2 py-1 text-sm lg:text-base transition-colors duration-200"
               >
-                API Documentation
+                {getTranslation('apiDocumentation')}
               </a>
             </nav>
             
@@ -131,7 +126,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="bg-primary-500 text-white px-4 lg:px-5 py-2 rounded-md hover:bg-primary-700 transition-colors duration-200 text-sm lg:text-base whitespace-nowrap"
               >
-                Login
+                {getTranslation('login')}
               </a>
             </div>
           </div>
@@ -157,7 +152,7 @@ const Header: React.FC = () => {
               href="/"
               className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
             >
-              Home
+              {getTranslation('home')}
             </a>
             <a 
               href="#features" 
@@ -177,7 +172,7 @@ const Header: React.FC = () => {
               }} 
               className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
             >
-              Use Cases
+              {getTranslation('useCases')}
             </a>
             <a 
               href="#pricing" 
@@ -195,7 +190,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="py-3 px-2 text-gray-500 hover:text-primary-600 hover:bg-gray-50 rounded-lg font-medium cursor-pointer transition-colors duration-200"
             >
-              API Documentation
+              {getTranslation('apiDocumentation')}
             </a>
             
             <div className="py-3 px-2">
@@ -216,7 +211,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="mt-2 bg-primary-600 text-white px-4 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-center font-medium"
             >
-              Login
+              {getTranslation('login')}
             </a>
           </nav>
         </div>

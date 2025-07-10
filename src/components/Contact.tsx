@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { getTranslation } from './LanguageSelector';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,13 +26,13 @@ const Contact = () => {
     setStatus({ submitted: false, loading: true, error: null });
     
     // Create mailto URL that opens Gmail with prefilled content
-    const subject = `Contact form submission from ${formData.name}`;
+    const subject = `${getTranslation('contactFormSubmission')} ${formData.name}`;
     const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
+${getTranslation('name')}: ${formData.name}
+${getTranslation('email')}: ${formData.email}
+${getTranslation('company')}: ${formData.company}
 
-Message:
+${getTranslation('message')}:
 ${formData.message}
     `;
     
@@ -49,25 +50,25 @@ ${formData.message}
     <div id="contact" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{getTranslation('getInTouch')}</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Have questions about CentralChat.ai? Our team is here to help you get started.
+            {getTranslation('contactDescription')}
           </p>
         </div>
         
         <div className="max-w-5xl mx-auto flex flex-col items-center justify-center">
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Send us a Message</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">{getTranslation('sendUsMessage')}</h3>
             
             {status.submitted ? (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                <p className="font-medium">Thank you for your message!</p>
-                <p>Your email has been opened in Gmail. Please review and send it.</p>
+                <p className="font-medium">{getTranslation('thankYouMessage')}</p>
+                <p>{getTranslation('emailOpenedGmail')}</p>
                 <button 
                   onClick={() => setStatus({ submitted: false, loading: false, error: null })}
                   className="mt-3 bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
                 >
-                  Send Another Message
+                  {getTranslation('sendAnotherMessage')}
                 </button>
               </div>
             ) : (
@@ -75,7 +76,7 @@ ${formData.message}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Full Name
+                      {getTranslation('fullName')}
                     </label>
                     <input
                       type="text"
@@ -90,7 +91,7 @@ ${formData.message}
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
+                      {getTranslation('emailAddress')}
                     </label>
                     <input
                       type="email"
@@ -106,7 +107,7 @@ ${formData.message}
                 
                 <div className="mb-6">
                   <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                    Company Name
+                    {getTranslation('companyName')}
                   </label>
                   <input
                     type="text"
@@ -120,7 +121,7 @@ ${formData.message}
                 
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
+                    {getTranslation('message')}
                   </label>
                   <textarea
                     id="message"
@@ -138,7 +139,7 @@ ${formData.message}
                   disabled={status.loading}
                   className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center disabled:opacity-50"
                 >
-                  {status.loading ? 'Sending...' : 'Send Message '}
+                  {status.loading ? getTranslation('sending') : getTranslation('sendMessage')}
                   <Send className="ml-2 h-4 w-4" />
                 </button>
               </div>

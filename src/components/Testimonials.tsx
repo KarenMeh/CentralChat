@@ -2,6 +2,17 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { getTranslation, translations } from './LanguageSelector';
+
+type TranslationKey = keyof typeof translations['en'];
+
+interface Testimonial {
+  name: string;
+  role: TranslationKey;
+  initials: string;
+  text: TranslationKey;
+  rating: number;
+}
 
 const styles = `
   @keyframes float {
@@ -150,19 +161,19 @@ const Testimonials = () => {
     ]
   };
 
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: "Lea W.",
-      role: "Customer Experience Manager",
+      role: "customerExperienceManager",
       initials: "LW",
-      text: "CentralChat helped us unify communication across five platforms. Now we reply faster, know exactly who said what, and our bot handles repetitive questions.",
+      text: "testimonialLea",
       rating: 5
     },
     {
       name: "Marc R.",
-      role: "Digital Sales Lead",
+      role: "digitalSalesLead",
       initials: "MR",
-      text: "With Central Chat, our e-commerce team can even process orders directly in the chat. It's a game changer.",
+      text: "testimonialMarc",
       rating: 5
     }
   ];
@@ -186,10 +197,10 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Testimonials
+            {getTranslation('testimonials')}
           </h2>
           {/* <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it - hear from some of our satisfied customers
+            {getTranslation('testimonialsDescription')}
           </p> */}
         </div>
         
@@ -208,7 +219,7 @@ const Testimonials = () => {
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="text-lg font-semibold text-gray-900">{testimonial.name}</h4>
-                          <p className="text-sm text-gray-600">{testimonial.role}</p>
+                          <p className="text-sm text-gray-600">{getTranslation(testimonial.role)}</p>
                         </div>
                         <div className="flex">
                           {renderStars(testimonial.rating)}
@@ -221,7 +232,7 @@ const Testimonials = () => {
                       <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                     </svg>
                     <p className="text-gray-700 text-base leading-relaxed pl-6">
-                      {testimonial.text}
+                      {getTranslation(testimonial.text)}
                     </p>
                   </div>
                 </div>

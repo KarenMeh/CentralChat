@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { getTranslation } from './LanguageSelector';
 
 const About: React.FC = () => {
   const [animate, setAnimate] = useState(false);
@@ -54,25 +55,25 @@ const About: React.FC = () => {
           </div>
           
           <h2 className="text-4xl font-bold text-gray-900 mb-8">
-            About <span className="text-primary-500">CentralChat.ai</span>
+            {getTranslation('about')} <span className="text-primary-500">CentralChat.ai</span>
           </h2>
           
           <div className="w-full max-w-4xl mx-auto">
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100">
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                CentralChat.ai is a powerful multi-channel chat platform that brings together communication from WhatsApp, Facebook, Instagram, and various other messengers in one unified interface.
+                {getTranslation('aboutDescription1')}
               </p>
               
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Built on our API-First-Approach, CentralChat.ai integrates seamlessly into existing ecosystems such as CRM, ERP, PMS, or ticketing systems – ensuring maximum efficiency in customer communication.
+                {getTranslation('aboutDescription2')}
               </p>
 
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                While CentralChat.ai works perfectly on its own, we also offer fully integrated, GDPR-compliant chatbots and next-generation AI agents as an optional add-on. These are custom-trained using your FAQs, previous conversations, and other relevant training data. On request, we also handle full integration into your systems — enabling agents to actively perform tasks such as managing bookings, checking order statuses, or processing customer inquiries in real time.
+                {getTranslation('aboutDescription3')}
               </p>
 
               <p className="text-xl text-gray-700 leading-relaxed">
-                With a strong focus on privacy, seamless integration, and usability, CentralChat.ai offers a central, intuitive interface for cross-channel communication – efficient, secure, and future-ready.
+                {getTranslation('aboutDescription4')}
               </p>
             </div>
           </div>
