@@ -22,9 +22,10 @@ const Footer: React.FC = () => {
               <p>&copy; 2025 CentralChat.ai. {getTranslation('allRightsReserved')}</p>
               <p className="text-sm mt-2">CentralChat.ai {getTranslation('isProductOf')} <a href="https://d3.net/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">d3.net</a></p>
               <div className="mt-4 flex flex-wrap justify-center gap-4">
-                <a href="/legal-notice" className="text-sm hover:text-white transition-colors">{getTranslation('legalNotice')}</a>
+                <a href="https://d3.net/impressum" className="text-sm hover:text-white transition-colors">{getTranslation('legalNotice')}</a>
+                <a href="https://d3.net/datenschutz" className="text-sm hover:text-white transition-colors">{getTranslation('privacyPolicy')}</a>
                 <a href="/terms" className="text-sm hover:text-white transition-colors">{getTranslation('termsConditions')}</a>
-                <a href="/privacy" className="text-sm hover:text-white transition-colors">{getTranslation('privacyPolicy')}</a>
+
               </div>
             </div>
           </div>
