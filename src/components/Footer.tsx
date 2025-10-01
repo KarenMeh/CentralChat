@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hexagon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { getTranslation } from './LanguageSelector';
 
 const Footer: React.FC = () => {
@@ -22,10 +22,9 @@ const Footer: React.FC = () => {
               <p>&copy; 2025 CentralChat.ai. {getTranslation('allRightsReserved')}</p>
               <p className="text-sm mt-2">CentralChat.ai {getTranslation('isProductOf')} <a href="https://d3.net/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">d3.net</a></p>
               <div className="mt-4 flex flex-wrap justify-center gap-4">
-                <a href="https://d3.net/impressum" className="text-sm hover:text-white transition-colors">{getTranslation('legalNotice')}</a>
-                <a href="https://d3.net/datenschutz" className="text-sm hover:text-white transition-colors">{getTranslation('privacyPolicy')}</a>
-                <a href="/terms" className="text-sm hover:text-white transition-colors">{getTranslation('termsConditions')}</a>
-
+                <Link to="/legal-notice" className="text-sm hover:text-white transition-colors">{getTranslation('legalNotice')}</Link>
+                <Link to="/terms" className="text-sm hover:text-white transition-colors">{getTranslation('termsConditions')}</Link>
+                <Link to="/privacy" className="text-sm hover:text-white transition-colors">{getTranslation('privacyPolicy')}</Link>
               </div>
             </div>
           </div>
